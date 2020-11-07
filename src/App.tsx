@@ -1,27 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background-color: red;
+  width: 30px;
+  height: 30px;
+  display: block;
 `
 
 function App() {
+  const [counter, setCounter] = useState(0)
   return (
-    <div className="App">
-      <Button>버튼!!</Button>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {counter}
+      <Button onClick={() => setCounter((prevCounter)=> prevCounter + 1)}>+</Button>
+      <Button onClick={()=> setCounter((prevCounter)=> prevCounter - 1)}>-</Button>
     </div>
   );
 }
