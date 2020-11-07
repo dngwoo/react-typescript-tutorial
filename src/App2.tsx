@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Number from './Number'
 
 interface IState{
     counter: number
@@ -26,7 +27,7 @@ class App extends Component<{}, IState>{ // P는 props, S는 state를 의미한�
         const { counter } = this.state
         return (
             <>
-                {counter}
+                <Number count={counter}></Number>
                 <button onClick={this.add}>+</button>
                 <button onClick={this.minus}>-</button>
             </>
