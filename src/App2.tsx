@@ -29,13 +29,16 @@ class App extends Component<{}, IState>{ // P는 props, S는 state를 의미한�
     onChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
         console.log(event)
     }
+    onSubmit = (event: React.FormEvent) => {
+        event.preventDefault()
+    }
     render(){
         const { counter,value } = this.state
         return (
             <>
                 {/* count에 값을 Number.tsx에서 정해준 number가 아닌 다른 값이 넘어가면 에러 표시가 난다.
                 원래 이 에러는 실행이 되야 나오는 콘솔에서 나오는 에러인데 바로 확인 가능하다는 점에서 매우 좋다. */}
-                <Form>
+                <Form onSubmit={this.onSubmit}>
                     <Input value={value} onChange={this.onChange}></Input>
                 </Form>
                 <Number count={counter}></Number> 
